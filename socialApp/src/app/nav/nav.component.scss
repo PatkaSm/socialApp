@@ -1,0 +1,146 @@
+$colors: (
+  background-grey: #1B2026,
+  nav-grey: #252931,
+  nav-details-grey: #33353b,
+  coral-pink: #F46E6B,
+  dark-pink: #9A5E5D,
+  blue: #1A5863,
+  details-grey: #7F8386,
+  details-white: #F2F0EF,
+  details-beige: #B9ADA8,
+
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+  }
+
+
+
+nav {
+    position: relative;
+    background-color: color(nav-grey);
+    height: 100vh;
+    max-width: 85%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .nav-icon {
+      font-size: 30px;
+    }
+
+    .pink-font {
+      color: color(coral-pink);
+    }
+  
+    .light-font {
+      color: color(details-white);
+    }
+
+    .edit-profile-icon {
+      padding: 15px 0 0 15px;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column; 
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      padding-bottom: 30px;
+
+      .avatar {
+        max-width: 150px;
+        border-radius: 100%;
+        border: 5px solid color(nav-details-grey);
+      }
+
+    }
+
+    .nav-box {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      color: color(details-grey);
+      border-top: 1px solid color(nav-details-grey);
+      height: 80px;
+      padding: 20px;
+
+      .nav-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          text-align: center;
+          margin: 0 20px;
+        }
+      }
+
+      .nav-details-counter {
+       
+        p {
+          margin: 0;
+        }
+      }
+    }
+    .bottom-icon {
+      justify-content: center;
+      align-items: center;
+      min-height: 20%;
+      padding: 20px;
+
+      .not_started_icon {
+        transform: rotate(-90deg);
+        transform: scale(2);
+        color: color(coral-pink);
+      }
+    }
+}
+
+@media only screen and (max-height: 680px) {
+
+  nav{
+
+    .nav-icon {
+      font-size: 26px;
+    }
+
+  .user-info {
+
+    .avatar {
+      max-width: 120px;
+      border-radius: 100%;
+      border: 5px solid color(nav-details-grey);
+    }
+
+  }
+
+  .nav-box {
+    height: 60px;
+    padding: 10px 20px;
+
+    .nav-details {
+
+      p {
+        
+        font-size: 13px;
+      }
+    }
+    }
+  
+
+  .bottom-icon {
+    justify-content: center;
+    align-items: center;
+
+    .not_started_icon {
+      transform: scale(1.8);
+    }
+  }
+}
+}
