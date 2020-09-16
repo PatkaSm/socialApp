@@ -1,0 +1,75 @@
+@import '../../variables';
+
+.notification-background {
+    display: flex;
+    flex-direction: row;
+
+    .notification-options {
+        color: $details-white;
+        display: none;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 60%;
+        border-left: 6px solid rgb(86, 168, 216);
+        height: 12vh;
+
+        mat-icon {
+            transform: scale(1.2);
+            opacity: .5;
+        }
+
+        .active-icon {
+            opacity: 1;
+        }
+
+        img {
+            position: fixed;
+            opacity: 0.1;
+            height: 12vh;
+            object-fit: cover;
+            max-width: 60%;
+        }
+    }
+
+    .notification {
+        position: relative;
+        height: 12vh;
+        width: 500px;
+        max-width: 500px;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        border-bottom: 1px solid $details-white;
+        background-color: $coral-pink;
+        padding: 15px;
+
+        .notification-image {
+            padding: 10px;
+            margin-right: 10px;
+            mat-icon {
+                transform: scale(1.8);
+            }
+        }
+
+        .notification-content {
+            display: flex;
+            flex-direction: column;
+
+            .notification-content-top {
+
+                small {
+                    margin-right: 10px;
+                }
+
+            }
+
+            .notification-content-bottom {
+                font-weight: lighter;
+            }
+
+        }
+    }
+}

@@ -1,59 +1,43 @@
-$colors: (
-  background-grey: #1B2026,
-  nav-grey: #252931,
-  nav-details-grey: #33353b,
-  coral-pink: #F46E6B,
-  dark-pink: #9A5E5D,
-  blue: #1A5863,
-  details-grey: #7F8386,
-  details-white: #F2F0EF,
-  details-beige: #B9ADA8,
+@import '../../variables';
 
-);
-
-@function color($color-name) {
-    @return map-get($colors, $color-name);
-  }
-
-
-
-nav {
-    position: relative;
-    background-color: color(nav-grey);
+.nav {
+    background-color: $nav-grey;
     height: 100vh;
-    max-width: 85%;
+    width: 80%;
+    max-width: 500px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-
+    position: absolute;
+    z-index: 10;
     .nav-icon {
       font-size: 30px;
     }
 
-    .pink-font {
-      color: color(coral-pink);
-    }
   
-    .light-font {
-      color: color(details-white);
-    }
-
     .edit-profile-icon {
-      padding: 15px 0 0 15px;
+      padding: 10px 0 0 10px;
+      
+      mat-icon {
+        transform: scale(.8);
+      }
     }
 
+    
     .user-info {
       display: flex;
       flex-direction: column; 
       justify-content: flex-start;
       align-items: center;
       width: 100%;
-      padding-bottom: 30px;
+      padding-bottom: 40px;
 
       .avatar {
-        max-width: 150px;
+        width: 160px;
         border-radius: 100%;
-        border: 5px solid color(nav-details-grey);
+        border: 6px solid $details-dark-grey;
+        margin-bottom: 10px;
+
       }
 
     }
@@ -64,10 +48,13 @@ nav {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      color: color(details-grey);
-      border-top: 1px solid color(nav-details-grey);
+      color: $details-grey;
+      border-top: 1px solid $light-border-grey;
+      box-shadow:
+        inset 0 1px 0 0 $background-grey;
       height: 80px;
-      padding: 20px;
+      padding: 17px;
+      cursor: pointer;
 
       .nav-details {
         display: flex;
@@ -81,41 +68,80 @@ nav {
         }
       }
 
-      .nav-details-counter {
+      .nav-details-counter-pill {
+        border-radius: 20px;
+        background-color: $details-grey;
+        width: 36px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
        
         p {
+          color: $details-white;
           margin: 0;
+          text-align: justify;
+          font-size: 13px;
         }
       }
     }
     .bottom-icon {
       justify-content: center;
       align-items: center;
-      min-height: 20%;
+      min-height: 17%;
       padding: 20px;
 
       .not_started_icon {
-        transform: rotate(-90deg);
-        transform: scale(2);
-        color: color(coral-pink);
+        transform: scale(2) rotate(-90deg);
+        color: $coral-pink;
       }
     }
 }
 
+.nav-box-active {
+  background-color: $darkest-grey;
+
+  .nav-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-icon {
+      color: $coral-pink;
+    }
+
+    p {
+      text-align: center;
+      margin: 0 20px;
+    }
+  }
+
+  .nav-details-counter-pill {
+    background-color: $ocean-blue !important;
+  }
+}
+
+.nav-active {
+  transform: translateX(0);
+}
+
+
 @media only screen and (max-height: 680px) {
 
-  nav{
+  .nav{
 
     .nav-icon {
       font-size: 26px;
     }
 
   .user-info {
+    padding-bottom: 30px;
 
     .avatar {
       max-width: 120px;
       border-radius: 100%;
-      border: 5px solid color(nav-details-grey);
     }
 
   }
@@ -132,14 +158,13 @@ nav {
       }
     }
     }
-  
 
   .bottom-icon {
     justify-content: center;
     align-items: center;
 
     .not_started_icon {
-      transform: scale(1.8);
+      transform: scale(1.8) rotate(-90deg);
     }
   }
 }

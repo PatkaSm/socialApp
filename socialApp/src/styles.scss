@@ -1,3 +1,18 @@
+@import '_variables';
+
+
+@font-face {
+  font-family: 'NewCicleFina';
+  src: url('assets/fonts/New\ Cicle\ Fina.otf');
+}
+
+@font-face {
+  font-family: 'Blackjar';
+  src: url('assets/fonts/BLACKJAR.TTF');
+}
+
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,12 +23,36 @@
       box-sizing: border-box;
     }
   }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+html, body { 
+  height: 100%; 
+  background-color: $background-grey;
+}
+
+body { 
+  margin: 0;
+  font-family: NewCicleFina; 
+  font-weight: bold;
+  font-size: 16px;
+  
+
   .nav-icon {
     display: inline-flex;
     vertical-align: middle;
     align-items: center;
   }
+
+  .pink-font {
+    color: $coral-pink;
+  }
+
+  .small-font {
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .light-font {
+    color: $details-white;
+  }
+
 
 }
