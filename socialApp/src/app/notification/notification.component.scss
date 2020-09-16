@@ -15,7 +15,7 @@
         border-left: 6px solid rgb(86, 168, 216);
         height: 12.5vh;
         position: absolute;
-        right: 0;
+        right: -55%;
         transition: transform 0.5s ease;
 
         .notification-options-icon {
@@ -81,7 +81,7 @@
     }
 
     .notification-options-active {
-        transform: translateX(0);
+        transform: translateX(-100%);
     }
 
     .notification-slide-push {
