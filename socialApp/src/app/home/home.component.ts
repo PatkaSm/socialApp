@@ -14,8 +14,10 @@ export class HomeComponent implements OnInit {
   }
 
   showMenu() {
-    const hamburger = this.document.querySelector('.nav');
-    hamburger.classList.toggle('nav-active');
+    const nav = this.document.querySelector('.nav');
+    const main = this.document.querySelector('.container');
+    nav.classList.toggle('nav-active');
+    main.classList.toggle('container-nav-push');
   }
 
 }
