@@ -32,7 +32,6 @@
       </div>
     </div>
     <div class="notifications-box">
-        <app-notification></app-notification>
-        <app-notification></app-notification>
+      <app-notification *ngFor="let notification of notifications" [notification]="notification" ></app-notification>
     </div>
   </div>

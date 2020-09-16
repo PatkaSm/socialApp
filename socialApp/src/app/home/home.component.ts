@@ -8,9 +8,48 @@ import { DOCUMENT } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  notifications = [];
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+
+    this.notifications = [
+      {
+        "user": "Mike",
+        "content": "Mechanical Grasshopper",
+        "icon": "phone_iphone",
+        "timestamp": new Date()
+      },
+      {
+        "user": "Dash",
+        "content": "Assistant App - Weather Module",
+        "icon": "filter_drama",
+        "timestamp": new Date()
+      },
+      {
+        "user": "Ghulam :)",
+        "content": "Upcoming web agency",
+        "icon": "image",
+        "timestamp": new Date()
+      },
+      {
+        "user": "Bill $ Kenney",
+        "content": "Bamboo Branding Wall Piece -not flat",
+        "icon": "system_update",
+        "timestamp": new Date()
+      },
+      {
+        "user": "Lena",
+        "content": "Missed call",
+        "icon": "call",
+        "timestamp": new Date()
+      },
+    ]
+   }
 
   ngOnInit(): void {
+
+    
+
   }
 
   showMenu() {

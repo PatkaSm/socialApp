@@ -1,24 +1,24 @@
-<div class="notification-background">
-    <div class="notification">
+<div class="notification-background" (click)="slide(notificationContainer)" #notificationContainer>
+    <div class="notification" >
         <div class="notification-image">
-            <mat-icon>phone_iphone</mat-icon>
+            <mat-icon class="notification-icon">{{notification.icon}}</mat-icon>
         </div>
         <div class="notification-content">
             <div class="notification-content-top">
                 <small>
-                    1 minute ago
+                    {{notification.timestamp | date: 'dd-MMM-yyyy HH:mm' }}
                 </small>
                 <small>
-                    by: Mike | Mints
+                    by: {{notification.user}}
                 </small>
             </div>
-            <span class="notification-content-bottom">Mechanical Grasshopper</span>
+            <span class="notification-content-bottom">{{notification.content}}</span>
         </div>
     </div>
     <div class="notification-options">
         <img src="../../assets/images/79376248_2535809083152417_8202679011785048064_o.jpg">
-        <mat-icon class="active-icon">visibility</mat-icon>
-        <mat-icon>favorite</mat-icon>
-        <mat-icon>delete</mat-icon>
+        <mat-icon class="notification-options-icon active-icon">visibility</mat-icon>
+        <mat-icon class="notification-options-icon">favorite</mat-icon>
+        <mat-icon class="notification-options-icon">delete</mat-icon>
     </div>
 </div>
