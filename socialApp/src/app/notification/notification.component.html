@@ -1,5 +1,5 @@
 <div class="notification-background" (click)="slide(notificationContainer)" #notificationContainer>
-    <div class="notification" >
+    <div class="notification">
         <div class="notification-image">
             <mat-icon class="notification-icon">{{notification.icon}}</mat-icon>
         </div>
@@ -16,9 +16,9 @@
         </div>
     </div>
     <div class="notification-options">
-        <img src="../../assets/images/79376248_2535809083152417_8202679011785048064_o.jpg">
-        <mat-icon class="notification-options-icon active-icon">visibility</mat-icon>
-        <mat-icon class="notification-options-icon">favorite</mat-icon>
-        <mat-icon class="notification-options-icon">delete</mat-icon>
+        <img src="../../assets/images/phone.jpeg">
+        <mat-icon class="notification-options-icon" (click)="$event.stopPropagation()">visibility</mat-icon>
+        <mat-icon class="notification-options-icon" [ngClass]="{'active-icon' : notification.is_liked}" (click)="like_toggle($event)">favorite</mat-icon>
+        <mat-icon class="notification-options-icon" (click)="$event.stopPropagation()" (click)="delete.emit(notification)">delete</mat-icon>
     </div>
 </div>

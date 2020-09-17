@@ -3,8 +3,9 @@
 .notification-background {
     display: flex;
     flex-direction: row;
-    overflow-x: hidden;
-
+    overflow-x: hidden; 
+    position: relative;
+    
     .notification-options {
         color: $details-white;
         display: flex;
@@ -14,13 +15,15 @@
         width: 55%;
         border-left: 6px solid rgb(86, 168, 216);
         height: 12.5vh;
-        position: absolute;
+        overflow-x: hidden; 
         right: -55%;
+        position: absolute;
         transition: transform 0.5s ease;
 
         .notification-options-icon {
             transform: scale(1.2);
             opacity: .5;
+            cursor: pointer;
         }
 
         .active-icon {
@@ -51,6 +54,7 @@
         padding: 15px;
         transition: transform 0.5s ease;
         z-index: 2;
+        cursor: pointer;
 
         .notification-image {
             padding: 10px;

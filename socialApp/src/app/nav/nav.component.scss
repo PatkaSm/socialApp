@@ -13,18 +13,24 @@
     left: -100%;
     z-index: 5;
     transition: transform 0.5s ease;
+    overflow-y: auto;
 
     .nav-icon {
       font-size: 30px;
     }
 
   
-    .edit-profile-icon {
-      padding: 10px 0 0 10px;
-      
-      mat-icon {
-        transform: scale(.8);
+    .edit-icon-box {
+      padding: 10px 0 0 20px;
+
+      .edit-icon-btn {
+        color: $details-white;
+              
+        .edit-icon {
+          transform: scale(.8);
+        }
       }
+
     }
 
     
@@ -54,42 +60,70 @@
       align-items: center;
       color: $details-grey;
       border-top: 1px solid $light-border-grey;
-      box-shadow:
-        inset 0 1px 0 0 $background-grey;
+      box-shadow: inset 0 1px 0 0 $background-grey;
       height: 80px;
       padding: 17px;
       cursor: pointer;
-
-      .nav-details {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-
-        p {
-          text-align: center;
-          margin: 0 20px;
+        
+        .nav-details {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+  
+          p {
+            text-align: center;
+            margin: 0 20px;
+          }
         }
-      }
+  
+        .nav-details-counter-pill {
+          border-radius: 20px;
+          background-color: $details-grey;
+          width: 36px;
+          height: 24px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        
+         
+          p {
+            color: $details-white;
+            margin: 0;
+            text-align: justify;
+            font-size: 13px;
+          }
+        }
+    }
 
-      .nav-details-counter-pill {
-        border-radius: 20px;
-        background-color: $details-grey;
-        width: 36px;
-        height: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      
-       
-        p {
-          color: $details-white;
-          margin: 0;
-          text-align: justify;
-          font-size: 13px;
+    .nav-item-list {
+      padding: 0 17px 0 0;
+      transition: all 3s ease;
+      display: none;
+      ul {
+
+        list-style-type: none;
+
+        li {
+          padding: 15px 0;
+          cursor: pointer;
+          border-top: 1px solid $details-dark-grey;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          span {
+            color: $details-grey;
+          }
         }
       }
     }
+
+    .nav-item-list-active {
+      display: block;
+
+    }
+
     .bottom-icon {
       justify-content: center;
       align-items: center;
@@ -107,18 +141,8 @@
   background-color: $darkest-grey;
 
   .nav-details {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
     .nav-icon {
       color: $coral-pink;
-    }
-
-    p {
-      text-align: center;
-      margin: 0 20px;
     }
   }
 
@@ -129,6 +153,25 @@
 
 .nav-active {
   transform: translateX(118%);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: $details-dark-grey; 
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: $details-grey; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  border-radius: 20px;
 }
 
 

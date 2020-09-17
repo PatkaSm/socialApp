@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Input } from '@angular/core';
+import { EventEmitter, Input, Output } from '@angular/core';
 import { Inject } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,8 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class NotificationComponent implements OnInit {
 
   @Input() notification;
+  @Output() delete;
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.delete = new EventEmitter();
+   }
 
   ngOnInit(): void {
   }
@@ -24,4 +27,13 @@ export class NotificationComponent implements OnInit {
     notification_options.classList.toggle('notification-options-active');
   }
 
+  like_toggle(event) {
+    event.stopPropagation();
+    if(this.notification.is_liked === true){
+      this.notification.is_liked = false;
+    }
+    else {
+      this.notification.is_liked = true;
+    } 
+  }
 }
