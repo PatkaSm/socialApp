@@ -1,63 +1,83 @@
 <nav class="nav">
-    <div class="edit-icon-box">
-        <button class=" btn edit-icon-btn">
-            <mat-icon class="edit-icon">create</mat-icon>
-        </button>
+  <div class="edit-icon-box">
+    <button class="btn edit-icon-btn">
+      <mat-icon class="edit-icon">create</mat-icon>
+    </button>
+  </div>
+  <div class="user-info">
+    <img src="../../assets/images/avatar.png" class="avatar" />
+    <span class="light-font">Designer name</span>
+    <span class="pink-font small-font">love with UI / GUI / UX </span>
+  </div>
+  <div
+    class="nav-box"
+    [ngClass]="{ 'nav-box-active': navOptionsVisibility.emails }"
+    (click)="toggleSubMenu('emails')"
+  >
+    <div class="nav-details">
+      <mat-icon class="nav-icon">email</mat-icon>
+      <p>Mail inbox</p>
     </div>
-    <div class="user-info">
-        <img src="../../assets/images/avatar.png" class="avatar">
-        <span class="light-font">Designer name</span>
-        <span class="pink-font small-font">love with UI / GUI / UX </span>
+    <div class="nav-details-counter-pill">
+      <p>5</p>
     </div>
-    <div class="nav-box" (click)="showEmails(navOption)" #navOption>
-        <div class="nav-details">
-            <mat-icon class="nav-icon">email</mat-icon>
-            <p>Mail inbox</p>
-        </div>
-        <div class="nav-details-counter-pill">
-            <p>5</p>
-        </div>
+  </div>
+  <div class="nav-item-list" *ngIf="navOptionsVisibility.emails">
+    <ul>
+      <li *ngFor="let email of emails">
+        <mat-icon></mat-icon>
+        <span>{{ email.title | slice: 0:45 }}</span>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="nav-box"
+    [ngClass]="{ 'nav-box-active': navOptionsVisibility.friends }"
+    (click)="toggleSubMenu('friends')"
+  >
+    <div class="nav-details">
+      <mat-icon class="nav-icon">people_alt</mat-icon>
+      <p>Friends</p>
     </div>
-    <div class="nav-item-list" id="mail-list">
-        <ul>
-            <li *ngFor="let email of emails">
-                <mat-icon></mat-icon>
-                <span>{{email.title}}</span>
-            </li>
-        </ul>
+    <div class="nav-details-counter-pill">
+      <p>25</p>
     </div>
-    <div class="nav-box" id="friends">
-        <div class="nav-details">
-            <mat-icon class="nav-icon">people_alt</mat-icon>
-            <p>Friends</p>
-        </div>
-        <div class="nav-details-counter-pill">
-            <p>25</p>
-        </div>
+  </div>
+  <div
+    class="nav-box"
+    [ngClass]="{ 'nav-box-active': navOptionsVisibility.invites }"
+    (click)="toggleSubMenu('invites')"
+  >
+    <div class="nav-details">
+      <mat-icon class="nav-icon">send</mat-icon>
+      <p>Invites</p>
     </div>
-    <div class="nav-box" id="invites">
-        <div class="nav-details">
-            <mat-icon class="nav-icon">send</mat-icon>
-            <p>Invites</p>
-        </div>
-        <div class="nav-details-counter-pill">
-            <p>1</p>
-        </div>
+    <div class="nav-details-counter-pill">
+      <p>1</p>
     </div>
-    <div class="nav-box">
-        <div class="nav-details">
-            <mat-icon class="nav-icon">verified</mat-icon>
-            <p>Bookmarks</p>
-        </div>
+  </div>
+  <div
+    class="nav-box"
+    [ngClass]="{ 'nav-box-active': navOptionsVisibility.bookmarks }"
+    (click)="toggleSubMenu('bookmarks')"
+  >
+    <div class="nav-details">
+      <mat-icon class="nav-icon">verified</mat-icon>
+      <p>Bookmarks</p>
     </div>
+  </div>
 
-    <div class="nav-box">
-        <div class="nav-details">
-            <mat-icon class="nav-icon">settings</mat-icon>
-            <p>Account Settings</p>
-        </div>
+  <div
+    class="nav-box"
+    [ngClass]="{ 'nav-box-active': navOptionsVisibility.accountSettings }"
+    (click)="toggleSubMenu('accountSettings')"
+  >
+    <div class="nav-details">
+      <mat-icon class="nav-icon">settings</mat-icon>
+      <p>Account Settings</p>
     </div>
-    <div class="nav-box bottom-icon">
-        <mat-icon class="nav-icon not_started_icon">not_started</mat-icon>
-    </div>
+  </div>
+  <div class="nav-box bottom-icon">
+    <mat-icon class="nav-icon not_started_icon">not_started</mat-icon>
+  </div>
 </nav>

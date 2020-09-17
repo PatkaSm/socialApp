@@ -1,24 +1,40 @@
-<div class="notification-background" (click)="slide(notificationContainer)" #notificationContainer>
-    <div class="notification">
-        <div class="notification-image">
-            <mat-icon class="notification-icon">{{notification.icon}}</mat-icon>
-        </div>
-        <div class="notification-content">
-            <div class="notification-content-top">
-                <small>
-                    {{notification.timestamp | date: 'dd-MMM-yyyy HH:mm' }}
-                </small>
-                <small>
-                    by: {{notification.user}}
-                </small>
-            </div>
-            <span class="notification-content-bottom">{{notification.content}}</span>
-        </div>
+<div
+  class="notification-background"
+  (click)="slide(notificationContainer, notificationOptionContainer)"
+>
+  <div class="notification" #notificationContainer>
+    <div class="notification-image">
+      <mat-icon class="notification-icon">{{ notification.icon }}</mat-icon>
     </div>
-    <div class="notification-options">
-        <img src="../../assets/images/phone.jpeg">
-        <mat-icon class="notification-options-icon" (click)="$event.stopPropagation()">visibility</mat-icon>
-        <mat-icon class="notification-options-icon" [ngClass]="{'active-icon' : notification.is_liked}" (click)="like_toggle($event)">favorite</mat-icon>
-        <mat-icon class="notification-options-icon" (click)="$event.stopPropagation()" (click)="delete.emit(notification)">delete</mat-icon>
+    <div class="notification-content">
+      <div class="notification-content-top">
+        <small>
+          {{ notification.timestamp | date: "dd-MMM-yyyy HH:mm" }}
+        </small>
+        <small> by: {{ notification.user }} </small>
+      </div>
+      <span class="notification-content-bottom">{{
+        notification.content
+      }}</span>
     </div>
+  </div>
+  <div class="notification-options" #notificationOptionContainer>
+    <img src="../../assets/images/phone.jpeg" />
+    <mat-icon
+      class="notification-options-icon"
+      (click)="$event.stopPropagation()"
+      >visibility</mat-icon
+    >
+    <mat-icon
+      class="notification-options-icon"
+      [ngClass]="{ 'active-icon': notification.is_liked }"
+      (click)="like_toggle($event)"
+      >favorite</mat-icon
+    >
+    <mat-icon
+      class="notification-options-icon"
+      (click)="handleDelete($event, notification)"
+      >delete</mat-icon
+    >
+  </div>
 </div>

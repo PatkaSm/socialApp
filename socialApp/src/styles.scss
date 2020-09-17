@@ -1,39 +1,36 @@
-@import '_variables';
-
+@import "_variables";
 
 @font-face {
-  font-family: 'NewCicleFina';
-  src: url('assets/fonts/New\ Cicle\ Fina.otf');
+  font-family: "NewCicleFina";
+  src: url("assets/fonts/New\ Cicle\ Fina.otf");
 }
 
 @font-face {
-  font-family: 'Blackjar';
-  src: url('assets/fonts/BLACKJAR.TTF');
+  font-family: "Blackjar";
+  src: url("assets/fonts/BLACKJAR.TTF");
 }
-
-
 
 * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  &::before,
+  &::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  
-    &::before,
-    &::after {
-      box-sizing: border-box;
-    }
   }
-html, body { 
-  height: 100%; 
+}
+html,
+body {
+  height: 100%;
   background-color: $background-grey;
 }
 
-body { 
+body {
   margin: 0;
-  font-family: NewCicleFina; 
+  font-family: NewCicleFina;
   font-weight: bold;
   font-size: 16px;
-  
 
   .nav-icon {
     display: inline-flex;
@@ -59,6 +56,4 @@ body {
     background-color: transparent;
     border: none;
   }
-
-
 }

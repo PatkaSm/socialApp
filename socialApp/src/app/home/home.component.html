@@ -1,14 +1,14 @@
 <div class="container">
   <div class="box">
-    <img src="../assets/images/avatar.png" class="user-backgroung-image">
+    <img src="../assets/images/avatar.png" class="user-backgroung-image" />
     <div class="top-icons">
-      <div class="top-icon-box menu-hamburger" (click)="showMenu()">
-        <button class="btn">
+      <div class="top-icon-box menu-hamburger">
+        <button class="btn" (click)="showMenu()">
           <mat-icon>menu</mat-icon>
         </button>
       </div>
       <div class="top-icon-box logo">
-        <img src="../assets/images/heart.png" class="heart-icon">
+        <img src="../assets/images/heart.png" class="heart-icon" />
         uilove
       </div>
       <div class="top-icon-box work-icon">
@@ -18,25 +18,33 @@
       </div>
     </div>
     <div class="title-box">
-      <span class="big-title">Principal <span class="pink-font">Dedignes</span></span>
+      <span class="big-title"
+        >Principal <span class="pink-font">Dedignes</span></span
+      >
       <span class="small-title">who believe in simplicity.</span>
       <span class="pink-font">love with UI / GUI / UX</span>
     </div>
     <div class="notifications-icons">
       <div class="notifications-icon-box">
-        <img src="../assets/images/ball.png" class="notification-icon notification-icon-active">
+        <img
+          src="../assets/images/ball.png"
+          class="notification-icon notification-icon-active"
+        />
         <span class="notification-icon-counter">21</span>
       </div>
       <div class="notifications-icon-box">
-        <img src="../assets/images/icon1.png" class="notification-icon">
+        <img src="../assets/images/icon1.png" class="notification-icon" />
       </div>
       <div class="notifications-icon-box">
-        <img src="../assets/images/be.png" class="notification-icon">
+        <img src="../assets/images/be.png" class="notification-icon" />
       </div>
     </div>
   </div>
   <div class="notifications-box">
-    <app-notification *ngFor="let notification of notifications" [notification]="notification"
-      (delete)="delete($event)"></app-notification>
+    <app-notification
+      *ngFor="let notification of notifications"
+      [notification]="notification"
+      (delete)="delete($event)"
+    ></app-notification>
   </div>
 </div>

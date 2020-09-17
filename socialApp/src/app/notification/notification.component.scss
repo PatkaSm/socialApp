@@ -1,153 +1,150 @@
-@import '../../variables';
+@import "../../variables";
 
 .notification-background {
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  position: relative;
+
+  .notification-options {
+    color: $details-white;
     display: flex;
     flex-direction: row;
-    overflow-x: hidden; 
+    justify-content: space-around;
+    align-items: center;
+    width: 55%;
+    border-left: 6px solid rgb(86, 168, 216);
+    height: 12.5vh;
+    overflow-x: hidden;
+    right: -55%;
+    position: absolute;
+    transition: transform 0.5s ease;
+
+    .notification-options-icon {
+      transform: scale(1.2);
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    .active-icon {
+      opacity: 1;
+    }
+
+    img {
+      position: absolute;
+      opacity: 0.1;
+      height: 12.5vh;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .notification {
     position: relative;
-    
-    .notification-options {
-        color: $details-white;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        width: 55%;
-        border-left: 6px solid rgb(86, 168, 216);
-        height: 12.5vh;
-        overflow-x: hidden; 
-        right: -55%;
-        position: absolute;
-        transition: transform 0.5s ease;
+    height: 12.5vh;
+    width: 500px;
+    max-width: 500px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid $details-white;
+    background-color: $coral-pink;
+    padding: 15px;
+    transition: transform 0.5s ease;
+    z-index: 2;
+    cursor: pointer;
 
-        .notification-options-icon {
-            transform: scale(1.2);
-            opacity: .5;
-            cursor: pointer;
-        }
-
-        .active-icon {
-            opacity: 1;
-        }
-
-        img {
-            position: absolute;
-            opacity: 0.1;
-            height: 12.5vh;
-            object-fit: cover;
-            width: 100%;
-        }
+    .notification-image {
+      padding: 10px;
+      margin-right: 10px;
+      .notification-icon {
+        transform: scale(1.8);
+      }
     }
 
-    .notification {
-        position: relative;
-        height: 12.5vh;
-        width: 500px;
-        max-width: 500px;
-        color: white;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        border-bottom: 1px solid $details-white;
-        background-color: $coral-pink;
-        padding: 15px;
-        transition: transform 0.5s ease;
-        z-index: 2;
-        cursor: pointer;
+    .notification-content {
+      display: flex;
+      flex-direction: column;
 
-        .notification-image {
-            padding: 10px;
-            margin-right: 10px;
-            .notification-icon {
-                transform: scale(1.8);
-            }
+      .notification-content-top {
+        small {
+          font-weight: bold;
+          margin-right: 10px;
         }
+      }
 
-        .notification-content {
-            display: flex;
-            flex-direction: column;
-
-            .notification-content-top {
-
-                small {
-                    font-weight: bold;
-                    margin-right: 10px;
-                }
-
-            }
-
-            .notification-content-bottom {
-                font-weight: lighter;
-            }
-
-        }
+      .notification-content-bottom {
+        font-weight: lighter;
+      }
     }
+  }
 
-    .notification-options-active {
-        transform: translateX(-100%);
-    }
+  .notification-options-active {
+    transform: translateX(-100%);
+  }
 
-    .notification-slide-push {
-        transform: translateX(-55%);
-    }
+  .notification-slide-push {
+    transform: translateX(-55%);
+  }
 }
 
 @media only screen and (max-height: 680px) {
-    .notification-background {
-        .notification-options {
-            .notification-options-icon {
-                transform: scale(.8);
-                opacity: .5;
-            }
-    
-            .active-icon {
-                opacity: 1;
-            }
-    
-            img {
-                position: absolute;
-                opacity: 0.1;
-                height: 12.5vh;
-                object-fit: cover;
-                width: 100%;
-            }
-        }
-    
-        .notification {
-            position: relative;
-            height: 12.5vh;
-            width: 500px;
-            max-width: 500px;
-            color: white;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            border-bottom: 1px solid $details-white;
-            background-color: $coral-pink;
-            padding: 15px;
-    
-            .notification-image {
-                padding: 10px;
-                margin-right: 10px;
-                .notification-icon {
-                    transform: scale(1.4);
-                }
-            }
-    
-            .notification-content {
-                .notification-content-top {
-                    small {
-                        margin-right: 10px;
-                        font-size: 11px;
-                    }
-                }
-                .notification-content-bottom {
-                    font-weight: lighter;
-                    font-size: 13px;
-                }
-            }
-        }
+  .notification-background {
+    .notification-options {
+      .notification-options-icon {
+        transform: scale(0.8);
+        opacity: 0.5;
+      }
+
+      .active-icon {
+        opacity: 1;
+      }
+
+      img {
+        position: absolute;
+        opacity: 0.1;
+        height: 12.5vh;
+        object-fit: cover;
+        width: 100%;
+      }
     }
+
+    .notification {
+      position: relative;
+      height: 12.5vh;
+      width: 500px;
+      max-width: 500px;
+      color: white;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      border-bottom: 1px solid $details-white;
+      background-color: $coral-pink;
+      padding: 15px;
+
+      .notification-image {
+        padding: 10px;
+        margin-right: 10px;
+        .notification-icon {
+          transform: scale(1.4);
+        }
+      }
+
+      .notification-content {
+        .notification-content-top {
+          small {
+            margin-right: 10px;
+            font-size: 11px;
+          }
+        }
+        .notification-content-bottom {
+          font-weight: lighter;
+          font-size: 13px;
+        }
+      }
+    }
+  }
 }
