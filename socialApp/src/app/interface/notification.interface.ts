@@ -4,5 +4,5 @@ export interface INotification {
   content: string;
   icon: string;
   timestamp: Date;
-  is_liked: boolean;
+  isLiked: boolean;
 }

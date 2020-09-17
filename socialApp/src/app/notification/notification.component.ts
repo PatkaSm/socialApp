@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { EventEmitter, Input, Output } from '@angular/core';
 import { Inject } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { INotification } from '../interface/notification.interface';
 
 @Component({
@@ -9,15 +9,13 @@ import { INotification } from '../interface/notification.interface';
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.scss'],
 })
-export class NotificationComponent implements OnInit {
-  @Input() notification;
+export class NotificationComponent  {
+  @Input() notification: INotification;
   @Output() delete;
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.delete = new EventEmitter();
   }
-
-  ngOnInit(): void {}
 
   slide(notificationContainer, notificationOptionContainer) {
     notificationContainer.classList.toggle('notification-slide-push');
@@ -26,10 +24,10 @@ export class NotificationComponent implements OnInit {
 
   like_toggle(event) {
     event.stopPropagation();
-    if (this.notification.is_liked === true) {
-      this.notification.is_liked = false;
+    if (this.notification.isLiked === true) {
+      this.notification.isLiked = false;
     } else {
-      this.notification.is_liked = true;
+      this.notification.isLiked = true;
     }
   }
 

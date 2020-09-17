@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { INotification } from '../interface/notification.interface';
 
@@ -7,7 +7,7 @@ import { INotification } from '../interface/notification.interface';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   notifications: INotification[];
 
   constructor(@Inject(DOCUMENT) private document: Document) {
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
         content: 'Mechanical Grasshopper',
         icon: 'phone_iphone',
         timestamp: new Date(),
-        is_liked: false,
+        isLiked: false,
       },
       {
         id: 2,
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
         content: 'Assistant App - Weather Module',
         icon: 'filter_drama',
         timestamp: new Date(),
-        is_liked: false,
+        isLiked: false,
       },
       {
         id: 3,
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         content: 'Upcoming web agency',
         icon: 'image',
         timestamp: new Date(),
-        is_liked: false,
+        isLiked: false,
       },
       {
         id: 4,
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
         content: 'Bamboo Branding Wall Piece -not flat',
         icon: 'system_update',
         timestamp: new Date(),
-        is_liked: false,
+        isLiked: false,
       },
       {
         id: 5,
@@ -50,12 +50,10 @@ export class HomeComponent implements OnInit {
         content: 'Missed call',
         icon: 'call',
         timestamp: new Date(),
-        is_liked: false,
+        isLiked: false,
       },
     ];
   }
-
-  ngOnInit(): void {}
 
   showMenu() {
     const nav = this.document.querySelector('.nav');

@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IEmail } from '../interface/email.interface';
 
 @Component({
@@ -8,7 +8,7 @@ import { IEmail } from '../interface/email.interface';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
 })
-export class NavComponent implements OnInit {
+export class NavComponent{
   emails: IEmail[];
   navOptionsVisibility: { [key: string]: boolean };
 
@@ -60,11 +60,9 @@ export class NavComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void {}
-
   toggleSubMenu(key: string): void {
     Object.keys(this.navOptionsVisibility).forEach((element) => {
-      if (element != key) {
+      if (element !== key) {
         this.navOptionsVisibility[element] = false;
       }
     });
