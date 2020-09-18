@@ -3,6 +3,7 @@ import { EventEmitter, Input, Output } from '@angular/core';
 import { Inject } from '@angular/core';
 import { Component } from '@angular/core';
 import { INotification } from '../interface/notification.interface';
+import { NotificationService } from './notification.service';
 
 @Component({
   selector: 'app-notification',
@@ -11,9 +12,9 @@ import { INotification } from '../interface/notification.interface';
 })
 export class NotificationComponent  {
   @Input() notification: INotification;
-  @Output() delete;
+  @Output() delete: EventEmitter<INotification>;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(private notificationService: NotificationService) {
     this.delete = new EventEmitter();
   }
 
@@ -22,13 +23,9 @@ export class NotificationComponent  {
     notificationOptionContainer.classList.toggle('notification-options-active');
   }
 
-  like_toggle(event) {
+  likeToggle(event) {
     event.stopPropagation();
-    if (this.notification.isLiked === true) {
-      this.notification.isLiked = false;
-    } else {
-      this.notification.isLiked = true;
-    }
+    this.notificationService.likeNotificationToggle(this.notification);
   }
 
   handleDelete($event: MouseEvent, notification: INotification) {

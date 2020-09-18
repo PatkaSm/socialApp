@@ -39,7 +39,7 @@
   </div>
   <div class="notifications-box">
     <app-notification
-      *ngFor="let notification of notifications"
+      *ngFor="let notification of notifications$ | async"
       [notification]="notification"
       (delete)="delete($event)"
     ></app-notification>
