@@ -1,4 +1,4 @@
-<nav class="nav">
+<nav class="nav" [ngClass]="{ 'nav-active ': menu$ | async }">
   <div class="edit-icon-box">
     <button class="btn edit-icon-btn">
       <mat-icon class="edit-icon">create</mat-icon>

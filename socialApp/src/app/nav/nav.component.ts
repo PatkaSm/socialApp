@@ -1,7 +1,6 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject } from '@angular/core';
 import { Component } from '@angular/core';
 import { IEmail } from '../interface/email.interface';
+import { NavService } from './nav.service';
 
 @Component({
   selector: 'app-nav',
@@ -11,8 +10,9 @@ import { IEmail } from '../interface/email.interface';
 export class NavComponent{
   emails: IEmail[];
   navOptionsVisibility: { [key: string]: boolean };
+  menu$ = this.navService.showMenu;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(private navService: NavService) {
     this.navOptionsVisibility = {
       emails: false,
       friends: false,
