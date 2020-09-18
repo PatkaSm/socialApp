@@ -23,7 +23,7 @@
   </div>
   <div class="nav-item-list" *ngIf="navOptionsVisibility.emails">
     <ul>
-      <li *ngFor="let email of emails">
+      <li *ngFor="let email of emails$ | async">
         <mat-icon></mat-icon>
         <span>{{ email.title | slice: 0:45 }}</span>
       </li>

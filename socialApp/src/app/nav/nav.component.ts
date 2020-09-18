@@ -8,7 +8,7 @@ import { NavService } from './nav.service';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent{
-  emails: IEmail[];
+  emails$ = this.navService.emailList;
   navOptionsVisibility: { [key: string]: boolean };
   menu$ = this.navService.showMenu;
 
@@ -21,43 +21,7 @@ export class NavComponent{
       accountSettings: false,
     };
 
-    this.emails = [
-      {
-        id: 1,
-        author: 'Mike',
-        content: '',
-        title: 'Hello you!',
-        timestamp: new Date(),
-      },
-      {
-        id: 2,
-        author: 'Dash',
-        content: '',
-        title: 'Work things',
-        timestamp: new Date(),
-      },
-      {
-        id: 3,
-        author: 'Ghulam',
-        content: '',
-        title: 'Upcoming web agency',
-        timestamp: new Date(),
-      },
-      {
-        id: 4,
-        author: 'Bill',
-        content: '',
-        title: 'You should see it',
-        timestamp: new Date(),
-      },
-      {
-        id: 5,
-        author: 'Lena',
-        content: '',
-        title: "You don't answer the phone",
-        timestamp: new Date(),
-      },
-    ];
+
   }
 
   toggleSubMenu(key: string): void {
