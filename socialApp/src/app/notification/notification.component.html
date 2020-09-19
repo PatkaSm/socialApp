@@ -8,7 +8,7 @@
     <div class="notification-content">
       <div class="notification-content-top">
         <small>
-          {{ notification.timestamp | date: "dd-MMM-yyyy HH:mm" }}
+          {{ notification.timestamp | dateAgo}}
         </small>
         <small> by: {{ notification.user }} </small>
       </div>

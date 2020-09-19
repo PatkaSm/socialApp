@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container" [ngClass]="{ 'container-nav-push': menu$ | async }">
   <div class="box">
     <img src="../assets/images/avatar.png" class="user-backgroung-image" />
     <div class="top-icons">
       <div class="top-icon-box menu-hamburger">
-        <button class="btn" (click)="showMenu()">
+        <button class="btn" (click)="toggleNav()">
           <mat-icon>menu</mat-icon>
         </button>
       </div>
       <div class="top-icon-box logo">
-        <img src="../assets/images/heart.png" class="heart-icon" />
+        <img src="../assets/images/heart.png" class="heart-icon"/>
         uilove
       </div>
       <div class="top-icon-box work-icon">

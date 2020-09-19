@@ -1,7 +1,7 @@
-import { Component, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, Inject, Input } from '@angular/core';
 import { INotification } from '../interface/notification.interface';
 import { NotificationService } from '../notification/notification.service';
+import { NavService } from '../nav/nav.service';
 
 @Component({
   selector: 'app-home',
@@ -10,20 +10,18 @@ import { NotificationService } from '../notification/notification.service';
 })
 export class HomeComponent {
 
-  notifications$ = this.notificationService._allNotifications
+  notifications$ = this.notificationService._allNotifications;
+  menu$ = this.navService.showMenu;
 
-  constructor(@Inject(DOCUMENT) private document: Document, private notificationService: NotificationService) {
-    
-  }
-
-  showMenu() {
-    const nav = this.document.querySelector('.nav');
-    const main = this.document.querySelector('.container');
-    nav.classList.toggle('nav-active');
-    main.classList.toggle('container-nav-push');
+  constructor(private notificationService: NotificationService, 
+              private navService: NavService) {
   }
 
   delete(notification: INotification) {
     this.notificationService.deleteNotification(notification.id);
+  }
+
+  toggleNav() {
+    this.navService.navToggle();
   }
 }

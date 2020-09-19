@@ -21,7 +21,7 @@ export class NotificationService {
       user: 'Dash',
       content: 'Assistant App - Weather Module',
       icon: 'filter_drama',
-      timestamp: new Date(),
+      timestamp: new Date("2020-09-19T04:22:00Z"),
       isLiked: false,
     },
     {
@@ -29,7 +29,7 @@ export class NotificationService {
       user: 'Ghulam :)',
       content: 'Upcoming web agency',
       icon: 'image',
-      timestamp: new Date(),
+      timestamp: new Date("2020-09-19T02:00:00Z"),
       isLiked: false,
     },
     {
@@ -37,7 +37,7 @@ export class NotificationService {
       user: 'Bill $ Kenney',
       content: 'Bamboo Branding Wall Piece -not flat',
       icon: 'system_update',
-      timestamp: new Date(),
+      timestamp: new Date("2020-09-19T00:00:00Z"),
       isLiked: false,
     },
     {
