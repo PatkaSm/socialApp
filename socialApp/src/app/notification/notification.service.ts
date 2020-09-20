@@ -29,7 +29,7 @@ export class NotificationService {
       user: 'Ghulam :)',
       content: 'Upcoming web agency',
       icon: 'image',
-      timestamp: new Date("2020-09-19T02:00:00Z"),
+      timestamp: new Date("2020-09-19T12:00:00Z"),
       isLiked: false,
     },
     {
@@ -61,7 +61,6 @@ export class NotificationService {
   get _allNotifications(): Observable<INotification[]> {
     return this.notifications$.asObservable();
   }
-
   
   deleteNotification(id: number) {
     this.notifications$.next(this.notifications$.getValue().filter(norification => norification.id !== id));

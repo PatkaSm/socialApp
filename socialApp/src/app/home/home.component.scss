@@ -11,6 +11,7 @@
   left: 0;
   transition: transform 0.5s ease;
   overflow-y: hidden;
+  border-radius: 10px 10px 0 0;
 
   .box {
     height: 50%;
@@ -143,8 +144,10 @@
     flex-direction: column;
     justify-content: flex-start;
   }
+
 }
 
 .container-nav-push {
-  transform: translateX(83%);
+  transform: translateX(85.5%);
 }
+

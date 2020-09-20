@@ -1,6 +1,4 @@
-import { DOCUMENT } from '@angular/common';
-import { EventEmitter, Input, Output } from '@angular/core';
-import { Inject } from '@angular/core';
+import { AfterViewInit, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { Component } from '@angular/core';
 import { INotification } from '../interface/notification.interface';
 import { NotificationService } from './notification.service';
@@ -10,12 +8,26 @@ import { NotificationService } from './notification.service';
   templateUrl: './notification.component.html',
   styleUrls: ['./notification.component.scss'],
 })
-export class NotificationComponent  {
+export class NotificationComponent implements AfterViewInit, OnChanges {
   @Input() notification: INotification;
   @Output() delete: EventEmitter<INotification>;
+  @Input() i: number;
+  @ViewChild('notificationContainer') notificationContainerRef: ElementRef
 
   constructor(private notificationService: NotificationService) {
     this.delete = new EventEmitter();
+  }
+
+  ngAfterViewInit() {
+    if (this.i === 0) {
+      this.notificationContainerRef.nativeElement.classList.add('notification-border-radius');
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes.i.currentValue === 0 && this.notificationContainerRef) {
+      this.notificationContainerRef.nativeElement.classList.add('notification-border-radius');
+    }
   }
 
   slide(notificationContainer, notificationOptionContainer) {

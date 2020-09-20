@@ -39,9 +39,10 @@
   </div>
   <div class="notifications-box">
     <app-notification
-      *ngFor="let notification of notifications$ | async"
+      *ngFor="let notification of notifications$ | async; index as i "
       [notification]="notification"
       (delete)="delete($event)"
+      [i]='i'
     ></app-notification>
   </div>
 </div>
