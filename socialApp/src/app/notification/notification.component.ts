@@ -12,7 +12,7 @@ export class NotificationComponent implements AfterViewInit, OnChanges {
   @Input() notification: INotification;
   @Output() delete: EventEmitter<INotification>;
   @Input() i: number;
-  @ViewChild('notificationContainer') notificationContainerRef: ElementRef
+  @ViewChild('notificationContainer') notificationContainerRef: ElementRef;
 
   constructor(private notificationService: NotificationService) {
     this.delete = new EventEmitter();
@@ -25,7 +25,7 @@ export class NotificationComponent implements AfterViewInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes.i.currentValue === 0 && this.notificationContainerRef) {
+    if (changes.i.currentValue === 0 && this.notificationContainerRef) {
       this.notificationContainerRef.nativeElement.classList.add('notification-border-radius');
     }
   }

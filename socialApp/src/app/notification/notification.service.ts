@@ -6,7 +6,7 @@ import { INotification } from '../interface/notification.interface';
   providedIn: 'root'
 })
 export class NotificationService {
-  
+
   notifications = [
     {
       id: 1,
@@ -21,7 +21,7 @@ export class NotificationService {
       user: 'Dash',
       content: 'Assistant App - Weather Module',
       icon: 'filter_drama',
-      timestamp: new Date("2020-09-19T04:22:00Z"),
+      timestamp: new Date('2020-09-19T04:22:00Z'),
       isLiked: false,
     },
     {
@@ -29,7 +29,7 @@ export class NotificationService {
       user: 'Ghulam :)',
       content: 'Upcoming web agency',
       icon: 'image',
-      timestamp: new Date("2020-09-19T12:00:00Z"),
+      timestamp: new Date('2020-09-19T12:00:00Z'),
       isLiked: false,
     },
     {
@@ -37,7 +37,7 @@ export class NotificationService {
       user: 'Bill $ Kenney',
       content: 'Bamboo Branding Wall Piece -not flat',
       icon: 'system_update',
-      timestamp: new Date("2020-09-19T00:00:00Z"),
+      timestamp: new Date('2020-09-19T00:00:00Z'),
       isLiked: false,
     },
     {
@@ -52,28 +52,28 @@ export class NotificationService {
 
   private notifications$: BehaviorSubject<INotification[]>;
 
-  constructor() { 
+  constructor() {
 
-  this.notifications$ = new BehaviorSubject<INotification[]>(this.notifications)
+  this.notifications$ = new BehaviorSubject<INotification[]>(this.notifications);
 
   }
 
   get _allNotifications(): Observable<INotification[]> {
     return this.notifications$.asObservable();
   }
-  
+
   deleteNotification(id: number) {
-    this.notifications$.next(this.notifications$.getValue().filter(norification => norification.id !== id));
+    this.notifications$.next(this.notifications$.getValue().filter(notification => notification.id !== id));
   }
 
   likeNotificationToggle(notification: INotification) {
     this.notifications$.next(this.notifications$.getValue().map(e => {
       if (e.id === notification.id) {
-        e.isLiked = !(notification.isLiked)
+        e.isLiked = !(notification.isLiked);
       }
       return e;
-    })); 
-    
+    }));
+
 }
 
 }

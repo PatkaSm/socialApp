@@ -41,16 +41,16 @@ export class NavService {
       id: 5,
       author: 'Lena',
       content: '',
-      title: "You don't answer the phone",
+      title: 'You don\'t answer the phone',
       timestamp: new Date(),
     },
   ];
 
-  private menu$: BehaviorSubject<Boolean>;
+  private menu$: BehaviorSubject<boolean>;
   private emails$: BehaviorSubject<IEmail[]>;
 
   constructor() {
-    this.menu$ = new BehaviorSubject<Boolean>(false);
+    this.menu$ = new BehaviorSubject<boolean>(false);
     this.emails$ = new BehaviorSubject<IEmail[]>(this.emails);
    }
 
@@ -63,10 +63,10 @@ export class NavService {
  }
 
   navToggle() {
-    this.menu$.next(!this.menu$.getValue())
+    this.menu$.next(!this.menu$.getValue());
   }
 
-   get showMenu(): Observable<Boolean> {
+   get showMenu(): Observable<boolean> {
      return this.menu$.asObservable();
    }
 

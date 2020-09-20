@@ -12,7 +12,7 @@ export class HomeComponent {
   notifications$ = this.notificationService._allNotifications;
   menu$ = this.navService.showMenu;
 
-  constructor(private notificationService: NotificationService, 
+  constructor(private notificationService: NotificationService,
               private navService: NavService) {
   }
 
