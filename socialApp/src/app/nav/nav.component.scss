@@ -10,7 +10,7 @@
   flex-direction: column;
   position: absolute;
   top: 0;
-  left: -100%;
+  left: -85%;
   z-index: 5;
   transition: transform 0.5s ease;
   overflow-y: auto;
@@ -122,7 +122,7 @@
   
 
     .not_started_icon {
-      transform: scale(1.8) rotate(-90deg);
+      transform: scale(1.6) rotate(-90deg);
       color: $coral-pink;
     }
   }
@@ -142,7 +142,7 @@
 }
 
 .nav-active {
-  transform: translateX(118%);
+  transform: translateX(100.5%);
 }
 
 ::-webkit-scrollbar {
@@ -164,7 +164,7 @@
   border-radius: 20px;
 }
 
-@media only screen and (max-height: 600px) {
+@media only screen and (max-height: 650px) {
   .nav {
     .nav-icon {
       font-size: 26px;
@@ -178,7 +178,7 @@
       }
       
       .avatar {
-        max-width: 110px;
+        max-width: 120px;
         border-radius: 100%;
       }
     }
@@ -188,7 +188,8 @@
       min-height: 50px;
       .nav-details {
         p {
-          font-size: 13px;
+          font-size: 13px;  border-radius: 10px 10px 0 0;
+
         }
       }
 
@@ -210,7 +211,6 @@
           padding: 13px 0;
   
           span {
-            color: $details-grey;
             font-size: 12px;
           }
         }
@@ -218,12 +218,67 @@
     }
 
     .bottom-icon {
-      justify-content: center;
-      align-items: center;
-
       .not_started_icon {
-        transform: scale(1.8) rotate(-90deg);
+        transform: scale(1.5) rotate(-90deg);
       }
     }
   }
+}
+
+@media only screen and (min-height: 800px) {
+  .nav {
+    .nav-icon {
+      font-size: 32px;
+    }
+
+    .user-info {
+      padding-bottom: 30px;
+
+      .small-font {
+        font-size: 17px;
+      }
+      
+      .avatar {
+        max-width: 170px;
+      }
+    }
+
+    .nav-box {
+      padding: 15px 30px;
+      min-height: 77px;
+      .nav-details {
+        p {
+          font-size: 15px;
+        }
+      }
+
+      .nav-details-counter-pill {
+        width: 40px;
+        height: 25px;
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .nav-item-list {
+      ul {
+  
+        li {
+          padding: 20px 0;
+  
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .bottom-icon {
+      .not_started_icon {
+        transform: scale(2) rotate(-90deg);
+      }
+    }
+  }
+
 }
